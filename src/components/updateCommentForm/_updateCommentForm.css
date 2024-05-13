@@ -1,0 +1,25 @@
+.update-comment-form {
+  width: 60%;
+  margin: 40px auto;
+}
+
+.update-comment-form input,
+.update-comment-form textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.update-comment-form button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.update-comment-form button:hover {
+  background-color: #218838;
+}

@@ -1,0 +1,25 @@
+.add-comment-form {
+  width: 60%;
+  margin: 20px auto 40px;
+}
+
+.add-comment-form input,
+.add-comment-form textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-comment-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.add-comment-form button:hover {
+  background-color: #0056b3;
+}
