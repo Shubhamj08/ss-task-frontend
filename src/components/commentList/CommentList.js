@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import UpdateCommentForm from '../updateCommentForm/UpdateCommentForm';
 import './_commentList.css';
 
@@ -9,9 +9,17 @@ const CommentList = ({
 }) => {
   const [selectedComment, setSelectedComment] = useState(null);
 
+  const updateComponentRef = useRef(null)
+
   const handleUpdate = (comment) => {
     setSelectedComment(comment);
   };
+
+  useEffect(() => {
+    if(selectedComment){
+      updateComponentRef.current.scrollIntoView();
+    }
+  }, [selectedComment])
 
   return (
     <div>
@@ -34,16 +42,18 @@ const CommentList = ({
         ))}
       </div>
       {selectedComment && (
-        <UpdateCommentForm
-          id={selectedComment.id}
-          initialName={selectedComment.name}
-          initialEmail={selectedComment.email}
-          initialBody={selectedComment.body}
-          onUpdate={(updatedComment) => {
-            setSelectedComment(null);
-            onUpdate(updatedComment)
-          }}
-        />
+        <div ref={updateComponentRef}>
+          <UpdateCommentForm
+            id={selectedComment.id}
+            initialName={selectedComment.name}
+            initialEmail={selectedComment.email}
+            initialBody={selectedComment.body}
+            onUpdate={(updatedComment) => {
+              setSelectedComment(null);
+              onUpdate(updatedComment)
+            }}
+          />
+        </div>
       )}
     </div>
   );

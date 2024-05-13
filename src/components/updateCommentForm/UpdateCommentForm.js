@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { updateComment } from '../../api';
 import './_updateCommentForm.css';
 
@@ -20,6 +20,12 @@ const UpdateCommentForm = ({
     const updatedComment = await updateComment(id, { name, email, body });
     onUpdate(updatedComment);
   };
+
+  useEffect(() => {
+    setName(initialName);
+    setEmail(initialEmail);
+    setBody(initialBody);
+  }, [initialName, initialEmail, initialBody]);
 
   return (
     <form onSubmit={handleSubmit} className="update-comment-form">
