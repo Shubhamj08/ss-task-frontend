@@ -23,3 +23,9 @@
 .update-comment-form button:hover {
   background-color: #218838;
 }
+
+@media screen and (max-width: 600px) {
+  .update-comment-form {
+    width: 100%;
+  }
+}

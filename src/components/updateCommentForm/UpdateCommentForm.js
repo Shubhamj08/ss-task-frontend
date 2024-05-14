@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { updateComment } from '../../api/commentsApi';
+import ApiStatus from '../../enums/ApiStatus';
+import Loader from '../elementalComponents/loader/Loader';
 import './_updateCommentForm.css';
 
 
@@ -15,9 +17,13 @@ const UpdateCommentForm = ({
   const [email, setEmail] = useState(initialEmail);
   const [body, setBody] = useState(initialBody);
 
+  const [apiStatus, setApiStatus] = useState(ApiStatus.IDLE)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setApiStatus(ApiStatus.LOADING);
     const updatedComment = await updateComment(id, { name, email, body });
+    setApiStatus(ApiStatus.SUCCESS);
     onUpdate(updatedComment);
   };
 
@@ -26,6 +32,10 @@ const UpdateCommentForm = ({
     setEmail(initialEmail);
     setBody(initialBody);
   }, [initialName, initialEmail, initialBody]);
+
+  if(apiStatus === ApiStatus.LOADING){
+    return <Loader />
+  }
 
   return (
     <form onSubmit={handleSubmit} className="update-comment-form">

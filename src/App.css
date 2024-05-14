@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 600px) {
   .app-layout > div {
-    width: auto;
+    width: 100%;
     padding: 0;
   }
 }
