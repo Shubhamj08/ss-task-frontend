@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { updateComment } from '../../api';
+import { updateComment } from '../../api/commentsApi';
 import './_updateCommentForm.css';
 
 

@@ -2,3 +2,22 @@
   text-align: center;
   padding: 30px;
 }
+
+.app-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.app-layout > div {
+  width: 40%;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .app-layout > div {
+    width: auto;
+    padding: 0;
+  }
+}

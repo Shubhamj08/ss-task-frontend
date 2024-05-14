@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addComment } from '../../api';
+import { addComment } from '../../api/commentsApi';
 import './_addCommentForm.css';
 
 const AddCommentForm = ({ onAdd }) => {

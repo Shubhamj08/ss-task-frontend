@@ -5,7 +5,8 @@ import './_commentList.css';
 const CommentList = ({ 
   comments, 
   onUpdate, 
-  onDeleteClicked 
+  onDeleteClicked,
+  actionsEnabled=true 
 }) => {
   const [selectedComment, setSelectedComment] = useState(null);
 
@@ -34,10 +35,12 @@ const CommentList = ({
               </div>
               <p>{comment.body}</p>
             </div>
-            <div className="comment-actions">
-              <button onClick={() => onDeleteClicked(comment.id)}>Delete</button>
-              <button onClick={() => handleUpdate(comment)}>Update</button>
-            </div>
+            {
+              actionsEnabled && <div className="comment-actions">
+                <button onClick={() => onDeleteClicked(comment.id)}>Delete</button>
+                <button onClick={() => handleUpdate(comment)}>Update</button>
+              </div>
+            }
           </div>
         ))}
       </div>

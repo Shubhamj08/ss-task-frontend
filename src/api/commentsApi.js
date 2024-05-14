@@ -21,3 +21,8 @@ export const deleteComment = async (id) => {
   const response = await axios.delete(`${API_BASE_URL}/${id}`);
   return response.data;
 };
+
+export const getCommentsFromThirdPartyApi = async () => {
+  const response = await axios.get(`${API_BASE_URL}/external`);
+  return response.data;
+}
